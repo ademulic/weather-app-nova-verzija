@@ -6,12 +6,12 @@ function App() {
   const [feeling, setFeeling] = useState('');
   const [background, setBackground] = useState('orange');
   const [fontColor, setFontColor] = useState('white');
-  function getRandomNumber(min, max) {
-    return Math.ceil(Math.random() * (max - min) + min);
-  }
+
+  const RandomNumber = (min, max) => Math.ceil(Math.random() * (max - min) + min);
+  
 
   const showWeather=()=>{ 
-    temperature = getRandomNumber(-100,40)
+    temperature = RandomNumber(-100,40)
     setTemperature(temperature);
 
     if(temperature<-4 ){ 
@@ -19,18 +19,18 @@ function App() {
       setBackground('lightblue');
       setFontColor('slateblue');
     }
-    else if(temperature >= -4 && temperature<=22){ 
-      setFeeling('');
-      setBackground('orange');
-      setFontColor('white');
-    }else if(temperature>22){ 
+    else if(temperature>22){ 
       setFeeling("It's really warm");
       setBackground('red');
       setFontColor('yellow'); 
+    } else{
+      setFeeling('');
+      setBackground('orange');
+      setFontColor('white');
     } 
-   
-   
   }
+
+  
   return (
     <div className="App">
       <div style={{ 
